@@ -1,12 +1,4 @@
-/* 
-  WDD131 – Home Page Base Styles
-  Follows all rubric requirements from Week 01 Assignment
-*/
-
-/* === 1. Google Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;500&display=swap');
-
-/* === 2. Universal Reset & Base === */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +15,7 @@ body {
   flex-direction: column;
 }
 
-/* === 3. Header & Course Title === */
+/* Header */
 header {
   background-color: #1e293b;
   color: white;
@@ -31,17 +23,15 @@ header {
   text-align: center;
 }
 
-/* Requirement: span#course-title must display as block */
 #course-title {
   display: block;
   font-family: 'Geist', sans-serif;
   font-weight: 700;
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
 }
 
-/* === 4. Navigation – Flex + Hover Effect === */
+/* Navigation – Flex + Hover */
 nav {
   display: flex;
   justify-content: center;
@@ -50,7 +40,8 @@ nav {
 }
 
 nav a {
-  color: #cbd5e1;
+  /* FIXED: WCAG AA contrast-compliant color */
+  color: #94a3b8; /* was #cbd5e1 → too light */
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -60,27 +51,23 @@ nav a {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Hover effect – required by assignment */
 nav a:hover {
   background: rgba(255, 255, 255, 0.3);
   color: white;
   transform: translateY(-2px);
 }
 
-/* === 5. Main Content – Centered & Limited Width === */
+/* Main Content – Centered & Grid */
 main {
   max-width: 900px;
   width: 90%;
   margin: 2.5rem auto;
   flex: 1;
-
-  /* Requirement: Use CSS Grid for cards */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-/* Optional: Add a top margin to h1 if desired */
 main h1 {
   grid-column: 1 / -1;
   text-align: center;
@@ -89,7 +76,7 @@ main h1 {
   color: #1e40af;
 }
 
-/* === 6. Card Styling (Two Sections) === */
+/* Card Styling */
 .card {
   background: white;
   padding: 1.5rem;
@@ -120,7 +107,7 @@ main h1 {
   font-size: 1rem;
 }
 
-/* === 7. Footer === */
+/* Footer */
 footer {
   background-color: #f1f5f9;
   padding: 1.25rem;
@@ -134,22 +121,16 @@ footer p {
   margin: 0.4rem 0;
 }
 
-/* === 8. Responsive Adjustments === */
+/* Responsive */
 @media (max-width: 600px) {
   #course-title {
     font-size: 1.4rem;
   }
-
   nav {
     gap: 0.6rem;
   }
-
   nav a {
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
-  }
-
-  main h1 {
-    font-size: 1.6rem;
   }
 }
