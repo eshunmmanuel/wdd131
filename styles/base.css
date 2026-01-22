@@ -40,8 +40,8 @@ nav {
 }
 
 nav a {
-  /* FIXED: WCAG AA contrast-compliant color */
-  color: #94a3b8; /* was #cbd5e1 → too light */
+  /* FIXED: Use WHITE for high contrast (WCAG AAA compliant) */
+  color: #ffffff; /* was #cbd5e1 → failed contrast */
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -53,7 +53,6 @@ nav a {
 
 nav a:hover {
   background: rgba(255, 255, 255, 0.3);
-  color: white;
   transform: translateY(-2px);
 }
 
