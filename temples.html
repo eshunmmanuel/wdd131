@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple Picture Album - Emmanuel Eshun</title>
+  <meta name="description" content="A responsive picture album of temples of The Church of Jesus Christ of Latter-day Saints.">
+  <meta name="author" content="Emmanuel Eshun" />
+
+  <!-- Mobile-first CSS -->
+  <link rel="stylesheet" href="styles/temples.css" />
+
+  <!-- Desktop CSS -->
+  <link rel="stylesheet" href="styles/temples-large.css" media="(min-width: 768px)" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- JavaScript -->
+  <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Temple Picture Album</h1>
+    <button id="menuButton" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </header>
+
+  <nav id="mainNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Old</a></li>
+      <li><a href="#">New</a></li>
+      <li><a href="#">Large</a></li>
+      <li><a href="#">Small</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <figure>
+      <img src="images/temples/accra-ghana.jpg" alt="Accra Ghana Temple" loading="lazy" />
+      <figcaption>Accra Ghana Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/salt-lake-usa.jpg" alt="Salt Lake Temple" loading="lazy" />
+      <figcaption>Salt Lake Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/washington-dc-usa.jpg" alt="Washington D.C. Temple" loading="lazy" />
+      <figcaption>Washington D.C. Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/abidjan-ivory-coast.jpg" alt="Abidjan Ivory Coast Temple" loading="lazy" />
+      <figcaption>Abidjan Ivory Coast Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/antofagasta-chile.jpg" alt="Antofagasta Chile Temple" loading="lazy" />
+      <figcaption>Antofagasta Chile Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/bangkok-thailand.jpg" alt="Bangkok Thailand Temple" loading="lazy" />
+      <figcaption>Bangkok Thailand Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/idaho-falls-usa.jpg" alt="Idaho Falls Temple" loading="lazy" />
+      <figcaption>Idaho Falls Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/lima-peru.jpg" alt="Lima Peru Temple" loading="lazy" />
+      <figcaption>Lima Peru Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/temples/manila-philippines.jpg" alt="Manila Philippines Temple" loading="lazy" />
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Emmanuel Eshun | Accra, Ghana</p>
+    <p id="lastModified">Last modification: </p>
+  </footer>
+</body>
+</html>

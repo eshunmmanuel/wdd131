@@ -1,0 +1,40 @@
+/* Hide hamburger button on large screens */
+#menuButton {
+  display: none;
+}
+
+/* Show nav by default on large screens */
+#mainNav {
+  display: block;
+  padding: 0.5rem 0;
+}
+
+#mainNav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+#mainNav li {
+  border: none;
+}
+
+#mainNav a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+}
+
+#mainNav a:hover {
+  background: rgba(255,255,255,0.3);
+  color: white;
+}
+
+/* Grid: 3 columns on desktop */
+main {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
