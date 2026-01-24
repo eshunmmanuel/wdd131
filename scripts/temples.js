@@ -6,9 +6,11 @@ document.getElementById('menuButton').addEventListener('click', function() {
   if (isActive) {
     nav.classList.remove('active');
     this.setAttribute('aria-expanded', 'false');
+    this.textContent = '☰';
   } else {
     nav.classList.add('active');
     this.setAttribute('aria-expanded', 'true');
+    this.textContent = '✕'; // Optional: change to X when open
   }
 });
 
