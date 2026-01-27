@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorite Scripture Chapter - Emmanuel Eshun</title>
+  <meta name="description" content="Submit and view favorite scripture chapters.">
+  <meta name="author" content="Emmanuel Eshun" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/scripture.css" />
+</head>
+<body>
+  <header>
+    <h1>Favorite Scripture Chapter</h1>
+  </header>
+
+  <main>
+    <form id="chapterForm">
+      <label for="favchap">Enter your favorite scripture chapter (e.g., John 3):</label>
+      <input type="text" id="favchap" name="favchap" required />
+      <button type="submit">Add Chapter</button>
+    </form>
+
+    <div id="message"></div>
+
+    <ul id="chaptersList"></ul>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Emmanuel Eshun | Accra, Ghana</p>
+    <p id="lastModified">Last modification: </p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="scripts/scripture.js" defer></script>
+</body>
+</html>
