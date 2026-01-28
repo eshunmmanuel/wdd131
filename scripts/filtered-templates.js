@@ -1,4 +1,4 @@
-// 1. Temple Data Array
+// 1. Temple Data Array [cite: 28-87]
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -49,7 +49,7 @@ const temples = [
     area: 116642,
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Step 5: Three additional temples
+  // Step 5: Three additional temples [cite: 89]
   {
     templeName: "Salt Lake",
     location: "Salt Lake City, Utah, United States",
@@ -78,7 +78,7 @@ const templeContainer = document.querySelector(".temple-grid");
 const currentYearSpan = document.querySelector("#currentyear");
 const lastModifiedSpan = document.querySelector("#lastModified");
 
-// 3. Template Card Generation Function
+// 3. Template Card Generation Function [cite: 90-98]
 function displayTemples(filteredTemples) {
   templeContainer.innerHTML = ""; // Clear existing content
   filteredTemples.forEach(temple => {
@@ -96,7 +96,7 @@ function displayTemples(filteredTemples) {
   });
 }
 
-// 4. Filtering Logic
+// 4. Filtering Logic [cite: 111-117]
 document.querySelector("#home").addEventListener("click", () => displayTemples(temples));
 
 document.querySelector("#old").addEventListener("click", () => {
@@ -115,7 +115,7 @@ document.querySelector("#small").addEventListener("click", () => {
   displayTemples(temples.filter(t => t.area < 10000));
 });
 
-// 5. Footer and Initial Load
+// 5. Footer and Initial Load [cite: 119]
 currentYearSpan.textContent = new Date().getFullYear();
 lastModifiedSpan.textContent = `Last Modification: ${document.lastModified}`;
 
