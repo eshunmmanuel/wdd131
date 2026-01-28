@@ -1,22 +1,37 @@
-/* DESKTOP NAVIGATION */
-nav ul {
-    display: flex;
-    justify-content: center;
+#menuButton { display: none; }
+
+#mainNav {
+  display: block;
+  padding: 0.75rem 0;
+  background-color: #1e293b;
+}
+#mainNav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#mainNav li { border: none; }
+#mainNav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+#mainNav a:hover {
+  background: rgba(255,255,255,0.3);
+  color: white;
+  transform: translateY(-2px);
 }
 
-nav a {
-    border-bottom: none;
-    padding: 1rem 2rem;
+main {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
-
-/* THE GRID - Desktop (Three Columns) */
-.temple-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* HEADER ADJUSTMENT */
-header {
-    padding: 2rem;
-}
+figcaption { font-size: 1.05rem; }

@@ -1,89 +1,77 @@
-/* BASIC RESET & FONTS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-    background-color: #003366;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #0f172a;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* NAVIGATION - Mobile Menu */
-nav {
-    background-color: #333;
+header h1 { font-size: 1.5rem; font-weight: 600; }
+
+#menuButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+#mainNav { display: none; background-color: #1e293b; }
+#mainNav ul { list-style: none; padding: 0; }
+#mainNav li { border-bottom: 1px solid #334155; }
+#mainNav a {
+  display: block;
+  padding: 1rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+#mainNav a:hover { background-color: #334155; color: white; }
+#mainNav.active { display: block; }
+
+main {
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-nav a {
-    display: block;
-    color: white;
-    padding: 1rem;
-    text-decoration: none;
-    text-align: center;
-    border-bottom: 1px solid #444;
+figure {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+figure img { width: 100%; height: auto; display: block; }
+figcaption {
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: #1e40af;
 }
 
-nav a:hover {
-    background-color: #0055aa;
-}
-
-/* MAIN CONTENT */
-h2 {
-    text-align: center;
-    color: #003366;
-    margin-top: 20px;
-}
-
-/* THE GRID - Mobile (Single Column) */
-.temple-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* One card per row on mobile */
-    gap: 20px;
-    padding: 20px;
-}
-
-/* THE CARDS */
-.temple-card {
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    padding: 15px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-}
-
-.temple-card h3 {
-    margin-top: 0;
-    border-bottom: 2px solid #003366;
-    color: #003366;
-}
-
-.temple-card p span {
-    font-weight: bold;
-}
-
-.temple-card img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-}
-
-/* FOOTER */
 footer {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 20px;
+  background-color: #f1f5f9;
+  padding: 1.25rem;
+  text-align: center;
+  color: #475569;
+  font-size: 0.95rem;
+  border-top: 1px solid #e2e8f0;
 }
+footer p { margin: 0.4rem 0; }
