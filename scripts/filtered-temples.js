@@ -1,4 +1,4 @@
-// 1. Array of Temple Objects [cite: 28-87]
+// 1. Data Array [cite: 28-87]
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -49,7 +49,7 @@ const temples = [
     area: 116642,
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Added 3 additional temples [cite: 89]
+  // Step 5: Three additional temples [cite: 89]
   {
     templeName: "Salt Lake",
     location: "Salt Lake City, Utah, United States",
@@ -58,32 +58,30 @@ const temples = [
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-37-1010512.jpg"
   },
   {
-    templeName: "Accra Ghana",
-    location: "Accra, Ghana",
-    dedicated: "2004, January, 11",
-    area: 17500,
-    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/accra-ghana/400x225/accra-ghana-temple-lds-249027-wallpaper.jpg"
+    templeName: "Bern Switzerland",
+    location: "Münchenbuchsee, Switzerland",
+    dedicated: "1955, September, 11",
+    area: 35546,
+    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/bern-switzerland/400x250/bern-switzerland-temple-lds-653038-wallpaper.jpg"
   },
   {
-    templeName: "Rome Italy",
-    location: "Rome, Italy",
-    dedicated: "2019, March, 10",
-    area: 41010,
-    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/rome-italy/2019/400x250/5-Rome-Italy-Temple-2160930.jpg"
+    templeName: "Hamilton New Zealand",
+    location: "Hamilton, New Zealand",
+    dedicated: "1958, April, 20",
+    area: 45251,
+    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/hamilton-new-zealand/400x250/hamilton-new-zealand-temple-lds-82930-wallpaper.jpg"
   }
 ];
 
-// Select DOM Elements
-const templeGrid = document.querySelector(".temple-grid");
-const filterTitle = document.querySelector("#filter-title");
+// 2. Select Elements
+const templeContainer = document.querySelector(".temple-grid"); // Match your HTML class
+const titleElement = document.querySelector("#filter-title");
 
-// Function to generate temple cards [cite: 90-98]
-function displayTemples(filteredTemples) {
-  templeGrid.innerHTML = ""; // Clear existing content [cite: 25]
+// 3. Display Function [cite: 90-98]
+function createTempleCard(filteredTemples) {
+  templeContainer.innerHTML = "";
   filteredTemples.forEach(temple => {
     let card = document.createElement("section");
-    card.classList.add("temple-card");
-
     card.innerHTML = `
       <h3>${temple.templeName}</h3>
       <p><span>Location:</span> ${temple.location}</p>
@@ -91,43 +89,34 @@ function displayTemples(filteredTemples) {
       <p><span>Size:</span> ${temple.area.toLocaleString()} sq ft</p>
       <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy" width="400" height="250">
     `;
-    templeGrid.appendChild(card);
+    templeContainer.appendChild(card);
   });
 }
 
-// Navigation Filter Event Listeners [cite: 111-117]
-document.querySelector("#home").addEventListener("click", () => {
-  filterTitle.textContent = "Home";
-  displayTemples(temples);
-});
+// 4. Filtering Logic 
+document.querySelector("#old").onclick = () => {
+  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
+};
 
-document.querySelector("#old").addEventListener("click", () => {
-  filterTitle.textContent = "Old";
-  // Filter: built before 1900 [cite: 111]
-  displayTemples(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
-});
+document.querySelector("#new").onclick = () => {
+  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
+};
 
-document.querySelector("#new").addEventListener("click", () => {
-  filterTitle.textContent = "New";
-  // Filter: built after 2000 [cite: 113]
-  displayTemples(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
-});
+document.querySelector("#large").onclick = () => {
+  createTempleCard(temples.filter(t => t.area > 90000));
+};
 
-document.querySelector("#large").addEventListener("click", () => {
-  filterTitle.textContent = "Large";
-  // Filter: larger than 90,000 sq ft [cite: 114]
-  displayTemples(temples.filter(t => t.area > 90000));
-});
+document.querySelector("#small").onclick = () => {
+  createTempleCard(temples.filter(t => t.area < 10000));
+};
 
-document.querySelector("#small").addEventListener("click", () => {
-  filterTitle.textContent = "Small";
-  // Filter: smaller than 10,000 sq ft [cite: 116]
-  displayTemples(temples.filter(t => t.area < 10000));
-});
+document.querySelector("#home").onclick = () => {
+  createTempleCard(temples);
+};
 
-// Footer Logic 
+// 5. Footer Dates [cite: 119]
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
 document.querySelector("#lastModified").textContent = `Last Modification: ${document.lastModified}`;
 
-// Initial load to show all temples [cite: 117]
-displayTemples(temples);
+// Initial load
+createTempleCard(temples);
