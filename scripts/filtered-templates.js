@@ -1,4 +1,4 @@
-// 1. Temple Data Array [cite: 28-87]
+// 1. Array of Temple Objects [cite: 28-87]
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -49,7 +49,7 @@ const temples = [
     area: 116642,
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Step 5: Three additional temples [cite: 89]
+  // Added 3 additional temples [cite: 89]
   {
     templeName: "Salt Lake",
     location: "Salt Lake City, Utah, United States",
@@ -73,16 +73,15 @@ const temples = [
   }
 ];
 
-// 2. Select HTML Elements
-const templeContainer = document.querySelector(".temple-grid");
-const currentYearSpan = document.querySelector("#currentyear");
-const lastModifiedSpan = document.querySelector("#lastModified");
+// Select DOM Elements
+const templeGrid = document.querySelector(".temple-grid");
+const filterTitle = document.querySelector("#filter-title");
 
-// 3. Template Card Generation Function [cite: 90-98]
+// Function to generate temple cards [cite: 90-98]
 function displayTemples(filteredTemples) {
-  templeContainer.innerHTML = ""; // Clear existing content
+  templeGrid.innerHTML = ""; // Clear existing content [cite: 25]
   filteredTemples.forEach(temple => {
-    const card = document.createElement("section");
+    let card = document.createElement("section");
     card.classList.add("temple-card");
 
     card.innerHTML = `
@@ -92,32 +91,43 @@ function displayTemples(filteredTemples) {
       <p><span>Size:</span> ${temple.area.toLocaleString()} sq ft</p>
       <img src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy" width="400" height="250">
     `;
-    templeContainer.appendChild(card);
+    templeGrid.appendChild(card);
   });
 }
 
-// 4. Filtering Logic [cite: 111-117]
-document.querySelector("#home").addEventListener("click", () => displayTemples(temples));
+// Navigation Filter Event Listeners [cite: 111-117]
+document.querySelector("#home").addEventListener("click", () => {
+  filterTitle.textContent = "Home";
+  displayTemples(temples);
+});
 
 document.querySelector("#old").addEventListener("click", () => {
+  filterTitle.textContent = "Old";
+  // Filter: built before 1900 [cite: 111]
   displayTemples(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
 });
 
 document.querySelector("#new").addEventListener("click", () => {
+  filterTitle.textContent = "New";
+  // Filter: built after 2000 [cite: 113]
   displayTemples(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
 });
 
 document.querySelector("#large").addEventListener("click", () => {
+  filterTitle.textContent = "Large";
+  // Filter: larger than 90,000 sq ft [cite: 114]
   displayTemples(temples.filter(t => t.area > 90000));
 });
 
 document.querySelector("#small").addEventListener("click", () => {
+  filterTitle.textContent = "Small";
+  // Filter: smaller than 10,000 sq ft [cite: 116]
   displayTemples(temples.filter(t => t.area < 10000));
 });
 
-// 5. Footer and Initial Load [cite: 119]
-currentYearSpan.textContent = new Date().getFullYear();
-lastModifiedSpan.textContent = `Last Modification: ${document.lastModified}`;
+// Footer Logic 
+document.querySelector("#currentyear").textContent = new Date().getFullYear();
+document.querySelector("#lastModified").textContent = `Last Modification: ${document.lastModified}`;
 
-// Call the function initially to show all temples on load
+// Initial load to show all temples [cite: 117]
 displayTemples(temples);
