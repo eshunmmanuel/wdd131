@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temple Gallery</title>
-  <link rel="stylesheet" href="styles/filtered-templates.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple Picture Album Enhancement - Emmanuel Eshun</title>
+  <meta name="description" content="A responsive, filtered picture album of temples.">
+  <meta name="author" content="Emmanuel Eshun" />
+
+  <link rel="stylesheet" href="styles/temples.css" />
+  <link rel="stylesheet" href="styles/temples-large.css" media="(min-width: 768px)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <script src="scripts/filtered-temples.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Temple Gallery</h1>
-    
-    <!-- Filter Controls -->
-    <div id="filter-controls">
-      <label for="category-filter">Filter by Category:</label>
-      <select id="category-filter">
-        <option value="all">All Temples</option>
-        <option value="ghana">Ghana Temples</option>
-        <option value="africa">African Temples</option>
-        <option value="new">Newly Dedicated</option>
-      </select>
-    </div>
+    <h1>Temple Picture Album</h1>
+    <button id="menuButton" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
   </header>
 
+  <nav id="mainNav">
+    <ul>
+      <li><a href="#" id="home">Home</a></li>
+      <li><a href="#" id="old">Old</a></li>
+      <li><a href="#" id="new">New</a></li>
+      <li><a href="#" id="large">Large</a></li>
+      <li><a href="#" id="small">Small</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div id="templates-container"></div>
+    <h2 id="filter-title">Home</h2>
+    <div class="temple-grid"></div>
   </main>
 
   <footer>
     <p>&copy; <span id="currentyear"></span> | Emmanuel Eshun | Accra, Ghana</p>
-    <p>Last modification: <span id="lastModified"></span></p>
+    <p id="lastModified">Last modification: </p>
   </footer>
-
-  <script src="scripts/filtered-templates.js" defer></script>
 </body>
 </html>
