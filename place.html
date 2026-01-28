@@ -14,9 +14,12 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/place.css" />
+  
+  <!-- JavaScript with defer attribute in head -->
+  <script src="scripts/place.js" defer></script>
 </head>
 <body>
-  <!-- FIX: Add header element wrapping h1 and picture -->
+  <!-- Header element wrapping h1 and picture -->
   <header>
     <h1>Ghana</h1>
 
@@ -24,7 +27,7 @@
     <picture>
       <source media="(max-width: 767px)" srcset="images/places/landscape-of-ghana-small.webp" />
       <source media="(min-width: 768px)" srcset="images/places/landscape-of-ghana-large.webp" />
-      <img src="images/places/landscape-of-ghana-large.webp" alt="landscape of ghana" loading="lazy" />
+      <img src="images/places/landscape-of-ghana-large.webp" alt="Landscape of Ghana" loading="lazy" />
     </picture>
   </header>
 
@@ -63,8 +66,5 @@
     <p>&copy; <span id="currentyear"></span> | Emmanuel Eshun | Accra, Ghana</p>
     <p>Last modification: <span id="lastModified"></span></p>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="scripts/place.js" defer></script>
 </body>
 </html>
