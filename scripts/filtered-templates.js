@@ -1,4 +1,4 @@
-// 1. Data Array [cite: 28-87]
+// 1. Temple Data Array
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -49,7 +49,7 @@ const temples = [
     area: 116642,
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Step 5: Three additional temples [cite: 89]
+  // Step 5: Three additional temples
   {
     templeName: "Salt Lake",
     location: "Salt Lake City, Utah, United States",
@@ -58,30 +58,33 @@ const temples = [
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-37-1010512.jpg"
   },
   {
-    templeName: "Bern Switzerland",
-    location: "Münchenbuchsee, Switzerland",
-    dedicated: "1955, September, 11",
-    area: 35546,
-    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/bern-switzerland/400x250/bern-switzerland-temple-lds-653038-wallpaper.jpg"
+    templeName: "Accra Ghana",
+    location: "Accra, Ghana",
+    dedicated: "2004, January, 11",
+    area: 17500,
+    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/accra-ghana/400x225/accra-ghana-temple-lds-249027-wallpaper.jpg"
   },
   {
-    templeName: "Hamilton New Zealand",
-    location: "Hamilton, New Zealand",
-    dedicated: "1958, April, 20",
-    area: 45251,
-    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/hamilton-new-zealand/400x250/hamilton-new-zealand-temple-lds-82930-wallpaper.jpg"
+    templeName: "Rome Italy",
+    location: "Rome, Italy",
+    dedicated: "2019, March, 10",
+    area: 41010,
+    imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/rome-italy/2019/400x250/5-Rome-Italy-Temple-2160930.jpg"
   }
 ];
 
-// 2. Select Elements
-const templeContainer = document.querySelector(".temple-grid"); // Match your HTML class
-const titleElement = document.querySelector("#filter-title");
+// 2. Select HTML Elements
+const templeContainer = document.querySelector(".temple-grid");
+const currentYearSpan = document.querySelector("#currentyear");
+const lastModifiedSpan = document.querySelector("#lastModified");
 
-// 3. Display Function [cite: 90-98]
-function createTempleCard(filteredTemples) {
-  templeContainer.innerHTML = "";
+// 3. Template Card Generation Function
+function displayTemples(filteredTemples) {
+  templeContainer.innerHTML = ""; // Clear existing content
   filteredTemples.forEach(temple => {
-    let card = document.createElement("section");
+    const card = document.createElement("section");
+    card.classList.add("temple-card");
+
     card.innerHTML = `
       <h3>${temple.templeName}</h3>
       <p><span>Location:</span> ${temple.location}</p>
@@ -93,30 +96,28 @@ function createTempleCard(filteredTemples) {
   });
 }
 
-// 4. Filtering Logic 
-document.querySelector("#old").onclick = () => {
-  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
-};
+// 4. Filtering Logic
+document.querySelector("#home").addEventListener("click", () => displayTemples(temples));
 
-document.querySelector("#new").onclick = () => {
-  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
-};
+document.querySelector("#old").addEventListener("click", () => {
+  displayTemples(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
+});
 
-document.querySelector("#large").onclick = () => {
-  createTempleCard(temples.filter(t => t.area > 90000));
-};
+document.querySelector("#new").addEventListener("click", () => {
+  displayTemples(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
+});
 
-document.querySelector("#small").onclick = () => {
-  createTempleCard(temples.filter(t => t.area < 10000));
-};
+document.querySelector("#large").addEventListener("click", () => {
+  displayTemples(temples.filter(t => t.area > 90000));
+});
 
-document.querySelector("#home").onclick = () => {
-  createTempleCard(temples);
-};
+document.querySelector("#small").addEventListener("click", () => {
+  displayTemples(temples.filter(t => t.area < 10000));
+});
 
-// 5. Footer Dates [cite: 119]
-document.querySelector("#currentyear").textContent = new Date().getFullYear();
-document.querySelector("#lastModified").textContent = `Last Modification: ${document.lastModified}`;
+// 5. Footer and Initial Load
+currentYearSpan.textContent = new Date().getFullYear();
+lastModifiedSpan.textContent = `Last Modification: ${document.lastModified}`;
 
-// Initial load
-createTempleCard(temples);
+// Call the function initially to show all temples on load
+displayTemples(temples);
