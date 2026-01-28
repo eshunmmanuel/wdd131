@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghana - Emmanuel Eshun</title>
+  <meta name="description" content="Information about Ghana: culture, geography, and climate.">
+  <meta name="author" content="Emmanuel Eshun" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/place.css" />
+</head>
+<body>
+  <h1>Ghana</h1>
+
+  <!-- Hero Image -->
+  <picture>
+    <source media="(max-width: 767px)" srcset="images/ghana-hero-small.webp" />
+    <source media="(min-width: 768px)" srcset="images/ghana-hero-large.webp" />
+    <img src="images/ghana-hero-large.webp" alt="Landscape of Ghana" loading="lazy" />
+  </picture>
+
+  <main>
+    <section class="data">
+      <h2>Data</h2>
+      <dl>
+        <div><dt>Area:</dt> <dd>238,535 sq km</dd></div>
+        <div><dt>Population:</dt> <dd>33 million</dd></div>
+        <div><dt>Capital:</dt> <dd>Accra</dd></div>
+        <div><dt>Languages:</dt> <dd>English, Akan, Ewe, Ga</dd></div>
+        <div><dt>Currency:</dt> <dd>Ghana Cedi (GHS)</dd></div>
+        <div><dt>Time Zone:</dt> <dd>UTC+0</dd></div>
+        <div><dt>Calling Code:</dt> <dd>+233</dd></div>
+        <div><dt>Internet TLD:</dt> <dd>.gh</dd></div>
+      </dl>
+    </section>
+
+    <section class="weather">
+      <h2>Weather</h2>
+      <!-- Mobile: SVG icon -->
+      <svg class="weather-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="5" fill="#fbbf24"/>
+      </svg>
+      
+      <dl>
+        <div><dt>Temperature:</dt> <dd>8°C</dd></div>
+        <div><dt>Conditions:</dt> <dd>Partly Cloudy</dd></div>
+        <div><dt>Wind:</dt> <dd>12 km/h</dd></div>
+        <div><dt>Wind Chill:</dt> <dd id="windChill">—</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Emmanuel Eshun | Accra, Ghana</p>
+    <p>Last modification: <span id="lastModified"></span></p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="scripts/place.js" defer></script>
+</body>
+</html>

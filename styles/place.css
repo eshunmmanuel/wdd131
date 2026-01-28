@@ -1,0 +1,120 @@
+/* === CSS Custom Properties === */
+:root {
+  --primary-color: #ce1126; /* Ghana red */
+  --secondary-color: #fcd116; /* Ghana yellow */
+  --accent-color: #006b3d; /* Ghana green */
+  --text-color: #1a1a1a;
+  --bg-color: #f9fafb;
+  --card-bg: white;
+  --shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+/* === Hero Image === */
+picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  display: block;
+}
+
+/* === Main Layout === */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+/* === Data & Weather Layout === */
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+}
+
+dt {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+dd {
+  color: #4b5563;
+}
+
+/* === Weather Icon === */
+.weather-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+/* === Desktop View === */
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+  }
+
+  section {
+    flex: 1;
+  }
+
+  /* Pseudo-element: weather emoticon (desktop only) */
+  .weather::after {
+    content: "🌤️";
+    font-size: 2.5rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  /* Hide SVG on desktop */
+  .weather-icon {
+    display: none;
+  }
+}
+
+/* === Footer === */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
