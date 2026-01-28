@@ -1,0 +1,22 @@
+/* DESKTOP NAVIGATION */
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    border-bottom: none;
+    padding: 1rem 2rem;
+}
+
+/* THE GRID - Desktop (Three Columns) */
+.temple-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER ADJUSTMENT */
+header {
+    padding: 2rem;
+}
