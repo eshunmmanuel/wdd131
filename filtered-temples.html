@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temple Gallery</title>
+  <link rel="stylesheet" href="styles/filtered-templates.css">
+</head>
+<body>
+  <header>
+    <h1>Temple Gallery</h1>
+    
+    <!-- Filter Controls -->
+    <div id="filter-controls">
+      <label for="category-filter">Filter by Category:</label>
+      <select id="category-filter">
+        <option value="all">All Temples</option>
+        <option value="ghana">Ghana Temples</option>
+        <option value="africa">African Temples</option>
+        <option value="new">Newly Dedicated</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div id="templates-container"></div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Emmanuel Eshun | Accra, Ghana</p>
+    <p>Last modification: <span id="lastModified"></span></p>
+  </footer>
+
+  <script src="scripts/filtered-templates.js" defer></script>
+</body>
+</html>
