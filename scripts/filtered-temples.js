@@ -1,4 +1,4 @@
-// 1. Data Array [cite: 28-87]
+// 1. Data Array
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -49,7 +49,6 @@ const temples = [
     area: 116642,
     imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Step 5: Three additional temples [cite: 89]
   {
     templeName: "Salt Lake",
     location: "Salt Lake City, Utah, United States",
@@ -73,15 +72,27 @@ const temples = [
   }
 ];
 
-// 2. Select Elements
-const templeContainer = document.querySelector(".temple-grid"); // Match your HTML class
+// 2. Element Selection
+const templeContainer = document.querySelector(".temple-grid");
 const titleElement = document.querySelector("#filter-title");
+const hamButton = document.querySelector('#menuButton');
+const navigation = document.querySelector('#mainNav');
 
-// 3. Display Function [cite: 90-98]
+// 3. Hamburger Menu Toggle
+hamButton.addEventListener('click', () => {
+    navigation.classList.toggle('open');
+    hamButton.classList.toggle('open');
+    // Change button text based on state
+    hamButton.textContent = hamButton.classList.contains('open') ? 'X' : '☰';
+});
+
+// 4. Card Creation Function
 function createTempleCard(filteredTemples) {
-  templeContainer.innerHTML = "";
+  templeContainer.innerHTML = ""; // Clear current cards
   filteredTemples.forEach(temple => {
     let card = document.createElement("section");
+    card.classList.add("temple-card"); // Important for CSS targeting
+    
     card.innerHTML = `
       <h3>${temple.templeName}</h3>
       <p><span>Location:</span> ${temple.location}</p>
@@ -93,30 +104,35 @@ function createTempleCard(filteredTemples) {
   });
 }
 
-// 4. Filtering Logic 
-document.querySelector("#old").onclick = () => {
-  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
-};
-
-document.querySelector("#new").onclick = () => {
-  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
-};
-
-document.querySelector("#large").onclick = () => {
-  createTempleCard(temples.filter(t => t.area > 90000));
-};
-
-document.querySelector("#small").onclick = () => {
-  createTempleCard(temples.filter(t => t.area < 10000));
-};
-
-document.querySelector("#home").onclick = () => {
+// 5. Filtering Event Listeners
+document.querySelector("#home").addEventListener("click", () => {
+  titleElement.textContent = "Home";
   createTempleCard(temples);
-};
+});
 
-// 5. Footer Dates [cite: 119]
+document.querySelector("#old").addEventListener("click", () => {
+  titleElement.textContent = "Old";
+  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) < 1900));
+});
+
+document.querySelector("#new").addEventListener("click", () => {
+  titleElement.textContent = "New";
+  createTempleCard(temples.filter(t => parseInt(t.dedicated.split(",")[0]) > 2000));
+});
+
+document.querySelector("#large").addEventListener("click", () => {
+  titleElement.textContent = "Large";
+  createTempleCard(temples.filter(t => t.area > 90000));
+});
+
+document.querySelector("#small").addEventListener("click", () => {
+  titleElement.textContent = "Small";
+  createTempleCard(temples.filter(t => t.area < 10000));
+});
+
+// 6. Footer Information
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
 document.querySelector("#lastModified").textContent = `Last Modification: ${document.lastModified}`;
 
-// Initial load
+// 7. Initial Page Load
 createTempleCard(temples);

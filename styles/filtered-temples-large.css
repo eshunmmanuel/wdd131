@@ -1,4 +1,4 @@
-/* This only applies to screens wider than 768px */
+/* Desktop overrides for screens wider than 768px */
 
 /* Change Navigation to Horizontal */
 nav ul {
@@ -18,7 +18,7 @@ nav a {
     margin: 0 auto;
 }
 
-/* Adjust card image for desktop */
+/* Hover effect for cards */
 .temple-card img {
     transition: transform 0.3s ease;
 }
